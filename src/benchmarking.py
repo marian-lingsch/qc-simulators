@@ -22,7 +22,7 @@ class Benchmark():
     def compare_addition(self, max_input_size=5, max_non_det_qubits=0):
         assert 2 * max_input_size >= max_non_det_qubits
         algorithm_times = {
-            alg.name: {(3*input_size + 5, non_det_qubits): [-1.0 for _t in range(self.iterations)] for input_size in
+            alg.name: {(3 * input_size + 5, non_det_qubits): [-1.0 for _t in range(self.iterations)] for input_size in
                        range(1, max_input_size + 1) for
                        non_det_qubits in range(min(max_non_det_qubits + 1, 2 * input_size + 1))} for alg in
             self.algorithms}
@@ -47,7 +47,7 @@ class Benchmark():
 
     def compare_grover_search_min_of_addition_two_numbers(self, max_qubits_per_input_number):
         algorithm_times = {
-            alg.name: {(3*input_size + 5, 2*input_size) : [-1.0 for _t in range(self.iterations)] for input_size in
+            alg.name: {(3 * input_size + 5, 2 * input_size): [-1.0 for _t in range(self.iterations)] for input_size in
                        range(1, max_qubits_per_input_number + 1)} for alg in
             self.algorithms}
         circuit = Circuit()

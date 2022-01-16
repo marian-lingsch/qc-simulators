@@ -96,18 +96,18 @@ def states_drop_parsing(input_file):
             for tuple_string in tuples_as_string:
                 if tuple_string == "":
                     continue
-                runtime_state_drop, runtime_db, error = map(lambda y: float(y.replace(" ", "")), tuple_string.split(","))
+                runtime_state_drop, runtime_db, error = map(lambda y: float(y.replace(" ", "")),
+                                                            tuple_string.split(","))
                 runtimes_state_drop_simulator.append(runtime_state_drop)
                 runtimes_db_simulator.append(runtime_db)
                 errors.append(error)
             processed_data[(nondet_qubits, total_qubits)] = (
-            np.average(runtimes_state_drop_simulator), np.average(runtimes_db_simulator), np.average(errors))
+                np.average(runtimes_state_drop_simulator), np.average(runtimes_db_simulator), np.average(errors))
 
     return processed_data
 
+
 def plot_states_drop(input_file):
-
-
     processed_data = states_drop_parsing(input_file)
 
     # Define Data
@@ -119,7 +119,7 @@ def plot_states_drop(input_file):
     max_qubits = max([k[1] for k in processed_data.keys()])
     duplicates = len([k[0] for k in processed_data.keys()]) != len(set([k[0] for k in processed_data.keys()]))
 
-    for k,v in processed_data.items():
+    for k, v in processed_data.items():
         if max_qubits == k[1] or not duplicates:
             nondet_qubits.append(k[0])
             runtime_db.append(np.log(v[1]))
@@ -144,11 +144,10 @@ def plot_states_drop(input_file):
     ax2 = ax1.twinx()
 
     ax2.set_ylabel('Average error')
-    lns3 = ax2.plot(nondet_qubits, errors, label='Error between results', color="red")
+    lns3 = ax2.plot(nondet_qubits, errors, label='Error between results-for-3d-plots', color="red")
     # ax2.tick_params(axis='y', labelcolor='blue')
     # Display
     # ax2.legend()
-
 
     # added these three lines
     lns = lns1 + lns2 + lns3
@@ -156,6 +155,7 @@ def plot_states_drop(input_file):
     ax1.legend(lns, labs, loc=0)
 
     plt.show()
+
 
 if __name__ == "__main__":
     # plot_3D("./output-almost-all/addition.csv")

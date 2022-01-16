@@ -1,4 +1,3 @@
-from simulators.array_simulator.array_simulator import ArraySimulator
 from simulators.db_simulator.db_simulator import DBSimulator
 from simulators.mixed_simulator.heuristics import Heuristics, HeuristicsEnumeration
 from simulators.qiskit.qiskit_simulator import QiskitSimulator

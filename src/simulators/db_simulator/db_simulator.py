@@ -1,8 +1,8 @@
 import sqlite3
+import time
 from typing import List, Tuple
 
 import numpy as np
-import time
 
 from gate import GatesIdentfications
 from simulators.simulator import Simulator

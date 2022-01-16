@@ -1,6 +1,6 @@
+import time
 import warnings
 
-import time
 from qiskit import QuantumCircuit, Aer
 
 from gate import GatesIdentfications
